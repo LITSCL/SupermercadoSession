@@ -1,11 +1,11 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 	<style>
 		#indexNavegacion {
@@ -49,15 +49,15 @@
 	
 	<ul>
 	<%
-	List<String> carritoList = (List<String>)session.getAttribute("elementosSeleccionados"); //Aca esta cargando los datos de la sesión, (Si nunca se a llenado el formulario retorna null).
+	List<String> carritoList = (List<String>)session.getAttribute("elementosSeleccionados"); //Aca esta cargando los datos de la sesiÃ³n, (Si nunca se a llenado el formulario retorna null).
 
 	if (carritoList == null) { //Se consulta se la lista esta vacia.
 		carritoList = new ArrayList<String>(); //En el caso de que la lista estaba vacia se crea una nueva.
-		session.setAttribute("elementosSeleccionados", carritoList); //El método setAttribue permite establecer una sesión, el primer parámtero es el nombre identificador, y el segundo parámetro es el elemento a guardar durante la sesión.
+		session.setAttribute("elementosSeleccionados", carritoList); //El mÃ©todo setAttribue permite establecer una sesiÃ³n, el primer parÃ¡mtero es el nombre identificador, y el segundo parÃ¡metro es el elemento a guardar durante la sesiÃ³n.
 	}
 
 	String carritoArray[] = request.getParameterValues("articulos");
-	if (carritoArray != null) { //Se consulta si la lista no está vacia.
+	if (carritoArray != null) { //Se consulta si la lista no estÃ¡ vacia.
 		for (String ca : carritoArray) { //Se recorre la lista utilizando un bucle for each.
 			carritoList.add(ca);
 		}
